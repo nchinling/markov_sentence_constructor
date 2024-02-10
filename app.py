@@ -62,16 +62,23 @@ def train_model():
     if request.method == 'GET':
         return render_template('train.html')
     elif request.method == 'POST':
-        sentence = request.form.get('sentence')
-        if sentence:
+        paragraph = request.form.get('paragraph')
+        if paragraph:
+            sentences = paragraph.split('.')
+            # Remove full stops from each sentence
+            sentences = [sentence.replace('.', '') for sentence in sentences]
+            # Remove leading/trailing whitespace and convert to lowercase
+            sentences = [sentence.strip().lower()
+                         for sentence in sentences if sentence.strip()]
             conn = create_connection()
             if conn is not None:
                 cursor = conn.cursor()
-                cursor.execute(
-                    "INSERT INTO sentences (sentence) VALUES (?)", (sentence,))
+                for sentence in sentences:
+                    cursor.execute(
+                        "INSERT INTO sentences (sentence) VALUES (?)", (sentence,))
                 conn.commit()
                 conn.close()
-                message = 'Sentence added successfully!'
+                message = 'Sentences added successfully!'
             else:
                 message = 'Database connection error.'
         else:
@@ -95,7 +102,7 @@ def generate_sentence():
         # generated_sentence.extend(start_sentence)
 
         # Generate the sentence
-        while len(generated_sentence) < 10:  # Limit the generated sentence length to 10 words
+        while len(generated_sentence) < 20:  # Limit the generated sentence length to 10 words
             last_word = start_sentence[-1]
             print(last_word)
             generated_sentence.append(last_word)

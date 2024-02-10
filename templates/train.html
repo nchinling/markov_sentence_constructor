@@ -10,8 +10,9 @@
 <body>
     <h1>Train Model</h1>
     <form method="POST" action="/train">
-        <label for="sentence">Enter a sentence to train the model:</label><br>
-        <input type="text" id="sentence" name="sentence" required><br><br>
+        <label for="sentence">Enter text to train the model:</label><br>
+        <textarea id="paragraph" name="paragraph" rows="10" style="width: 40%;" required></textarea><br><br>
+
         <input type="submit" value="Train">
     </form>
     {% if message %}
