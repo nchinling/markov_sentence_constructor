@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Sentence</title>
+</head>
+
+<body>
+    <h1>Generate Sentence</h1>
+    <ul>
+        {% for sentence in sentences %}
+        <li>{{ sentence }}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="POST" action="/generate">
+        <input type="submit" value="Generate Sentence">
+    </form>
+    <br>
+    <div id="sentence-container">
+        {% if generated_sentence %}
+        <p>Generated Sentence:</p>
+        {% endif %}
+        {{error_message}}
+    </div>
+
+</body>
+
+</html>

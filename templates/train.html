@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Model</title>
+</head>
+
+<body>
+    <h1>Train Model</h1>
+    <form method="POST" action="/train">
+        <label for="sentence">Enter a sentence to train the model:</label><br>
+        <input type="text" id="sentence" name="sentence" required><br><br>
+        <input type="submit" value="Train">
+    </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+</body>
+
+</html>
