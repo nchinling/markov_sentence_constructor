@@ -7,7 +7,8 @@ html {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
 }
@@ -40,4 +41,27 @@ textarea {
 .submit-button:hover {
     background-color: #45a049;
     /* Darker green */
+}
+
+.navbar {
+    overflow: hidden;
+    /* background-color: #05690c; */
+    background-color: rgb(47, 165, 255);
+    display: flex
+}
+
+/* Navigation links */
+.navbar a {
+    /* display: inline-block; */
+    /* display: block; */
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+    background-color: rgb(47, 165, 255);
+    color: grey;
 }
