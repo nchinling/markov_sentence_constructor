@@ -4,19 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate Sentence</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="static/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 
 <body>
-    <!-- <div class="navbar">
-        <a href="/train">Train</a>
-        <a href="/generate">Generate</a>
-    </div> -->
     <nav class="navbar navbar-expand-lg navbar-dark">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -44,26 +39,30 @@
         </div>
 
     </nav>
-    <div style="margin:20px">
-        <h1>Generate Sentence</h1>
-        <!-- <ul>
-        {% for sentence in sentences %}
-        <li>{{ sentence }}</li>
-        {% endfor %}
-    </ul> -->
 
-        <form method="POST" action="/generate">
-            <input type="submit" value="Generate Sentence">
-        </form>
+    <div class="container">
         <br>
-        <div id="sentence-container">
-            {% if generated_sentence %}
-            <p>Generated Sentence:</p>
-            {{generated_sentence}}
-            {% endif %}
-            {{error_message}}
-        </div>
+        <h1>Welcome to Markov Sentence Generator app.</h1>
+        <p>A Markov sentence generator is a type of algorithm used to generate sentences based on statistical
+            patterns observed in a given corpus of text. The algorithm relies on Markov chains, which are mathematical
+            models that describe a sequence of possible events in which the <i>probability of each event depends only on
+                the state attained in the preceding event</i>. In the context of text generation, a Markov chain can be
+            used to
+            model the likelihood of transitioning from one word to another based on the words that precede it in a given
+            text.</p>
+
+        <p>The generator constructs a Markov chain by recording the frequency of word
+            transitions. For example, if the word "cat" frequently follows the word "the" in the input text, the
+            generator assigns a higher probability to that transition in the Markov chain.
+        </p>
+        <p>
+            To generate a sentence, the generator starts with an initial word (often randomly
+            selected) and uses the Markov chain to probabilistically select the next word based on the preceding word.
+            This process continues until a predetermined stopping condition is met, such as reaching a maximum sentence
+            length or encountering an end-of-sentence marker.</p>
     </div>
+
+
     <!-- Bootstrap - Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
