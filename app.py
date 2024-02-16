@@ -59,6 +59,8 @@ def generate_sentence():
                 break
 
         generated_sentence = ' '.join(generated_sentence)
+        generated_sentence = generated_sentence.capitalize()
+        generated_sentence += '.'
         return render_template('generate.html', generated_sentence=generated_sentence, sentences=sentences)
     elif request.method == 'GET':
         return render_template('generate.html', generated_sentence=generated_sentence, sentences=sentences)
